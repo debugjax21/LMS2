@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+    crossorigin="anonymous"></script>
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet"></link>
+    <script defer type="module" src="/js/main.js"></script>
+    <script src="https://kit.fontawesome.com/7bd31926fc.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+    <title>MLP</title>
+</head>
+<body>
+    <header class="fixed-top navbar-expand-sm">
+        <nav class="navbar navbar-dark ps-3 pe-3">
+            <img class="d-sm-inline-block" src="/img/logo.svg" alt="logo image" width="80">
+            <h1>Major League Pickleball</h1>
+            <ul class="nav nav-pills" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active " data-bs-toggle="pill" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="pill" href="#teams">Teams</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container-fluid">
+        <div class="row">
+            <section class="aside col-md-3 order-md-1 order-2" id="left-aside">
+                <!-- Left aside render. -->
+            </section>
+            
+            <section class="content col-sm-12 col-md-6 order-1 order-md-2">
+                <div class="tab-content">
+                    <section class="tab-pane active" id="home" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <div class="card content-card text-white mt-5">
+                            <h2 class="card-header">About</h2>
+                            <p class="card-body">We believe pickleball makes the world a better, more joyful place. 
+                                From thrilling events and experiences to high-quality live broadcasts for fans around the world, 
+                                our goal is to elevate and grow the sport we love in everything we do.
+                            </p>
+                        </div>
+
+                        <div class="card content-card text-white mt-4">
+                            <h2 class="card-header">Our Mission</h2>
+                            <p class="card-body">Pickleball is no ordinary sport, so we want to be the league that shows the world how extraordinary it really is. 
+                                Our mission is to elevate pickleball in everything we do, from the thrilling events we produce to the unparalleled content we create.
+                            </p>
+                        </div>
+
+                        <div class="card content-card text-white mt-4 mb-5">
+                            <h2 class="card-header">Our Vision</h2>
+                            <div class="card-body">
+                                <p>The future of pickleball looks bright. We hope to leave our mark by becoming the most well-known leader in professional pickleball, 
+                                    because we never stop innovating (and challenging ourselves in the process).</p>
+                                <p>We believe pickleball makes the world a better, more joyful place. So our greater purpose is to build this sport we love so much and bring it to as many people as possible. 
+                                    Every person is a pickler waiting to happen.</p>
+                            </div>
+                        </div>
+            
+                        <div class="iframe-container">
+                            <iframe class="responsive-iframe" src="https://www.youtube.com/embed/LSfEFKf8GyE" title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                    </section>
+                
+                  <section class="tab-pane" id="teams">
+                    <h3 class="text-center mb-4">Teams</h3>
+                    <div id="deletedTeamAlert"></div>
+                    <div id="teamList" class="table-responsive rounded">
+                        <!-- Team Table Rendered -->
+                    </div>
+                    <button class="btn btn-secondary" id="resetBtn">Reset</button>
+                </section>
+                </div>
+            </section>
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="modal" aria-labelledby="ModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Delete Team?</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>This action cannot be undone!</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" id="continueBtn" class="btn btn-primary" data-bs-dismiss="modal">Continue</button>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+
+            <section class="aside col-sm-12 col-md-3 order-3" id="right-aside">
+                <!-- Right aside render -->
+            </section>
+        </div>
+    </main>
+    <footer class="d-flex align-items-center justify-content-center">
+        <p>&copy COPYRIGHT 2023 MAJOR LEAGUE PICKLEBALL, INC.</p>
+    </footer>
+    <script defer>
+            // Changes text color in nav when scrolled down.
+        $(document).scroll(function () {
+        $nav = $(".navbar");
+        $nav.toggleClass("nav-scroll", $(this).scrollTop() > $nav.height());
+        $(".nav-link, h1").toggleClass("black", $(this).scrollTop() > $nav.height());
+        });
+    </script>
+</body>
+</html>
